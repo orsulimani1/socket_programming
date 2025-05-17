@@ -50,6 +50,7 @@ add_executable(zero_copy_client ${ZEROCOPY_SRC}/zero_copy_client.c)
 add_executable(sensor_monitoring src/examples/sensor_monitoring.c)
 add_executable(high_perf_webserver src/examples/high_perf_webserver.c)
 add_executable(can_automotive src/examples/can_automotive.c)
+add_executable(low_latency_trading src/examples/low_latency_trading.c)
 
 # Link libraries
 if(UNIX AND NOT APPLE)

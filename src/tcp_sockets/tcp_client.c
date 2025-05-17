@@ -27,6 +27,7 @@ int main() {
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(PORT);
     
+    
     // Convert IPv4 address from text to binary form
     if (inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0) {
         perror("Invalid address or address not supported");
@@ -41,7 +42,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
     printf("Connected to server\n");
-    
+    // getchar();
     // Step 4: Send message to server
     send(sock, hello, strlen(hello), 0);
     printf("Hello message sent to server\n");

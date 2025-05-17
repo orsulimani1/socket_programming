@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <errno.h>
 
 #define PORT 8080
 #define BUFFER_SIZE 1024
@@ -19,6 +20,7 @@ int main() {
     
     // Step 1: Create UDP socket file descriptor
     if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+        printf("My error is: %s", strerror(errno));
         perror("Socket creation failed");
         exit(EXIT_FAILURE);
     }
