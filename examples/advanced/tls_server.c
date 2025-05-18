@@ -5,7 +5,6 @@
  * This example demonstrates how to implement a secure socket server
  * using OpenSSL for TLS/SSL encryption.
  * 
- * Compile with: gcc -o tls_server tls_server.c -lssl -lcrypto
  */
 
 #include <stdio.h>
@@ -26,8 +25,8 @@
 #define BUFFER_SIZE 1024
 
 // Certificate and key files
-#define CERT_FILE "server.crt"
-#define KEY_FILE "server.key"
+#define CERT_FILE "/tmp/server.crt"
+#define KEY_FILE "/tmp/server.key"
 
 // Initialize OpenSSL
 void init_openssl() {
@@ -80,7 +79,7 @@ void configure_ssl_context(SSL_CTX *ctx) {
     }
     
     // Set minimum TLS version
-    SSL_CTX_set_min_proto_version(ctx, TLS1_2_VERSION);
+    SSL_CTX_set_min_proto_version(ctx, TLS1_3_VERSION);
     
     // Use only strong ciphers
     if (!SSL_CTX_set_cipher_list(ctx, "HIGH:!aNULL:!MD5:!RC4")) {
@@ -91,7 +90,7 @@ void configure_ssl_context(SSL_CTX *ctx) {
 
 int main(int argc, char *argv[]) {
     int port = DEFAULT_PORT;
-    
+    printf("%s\n", argv[0]);
     // Parse command line arguments for port
     if (argc > 1) {
         port = atoi(argv[1]);

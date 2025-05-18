@@ -52,6 +52,8 @@ add_executable(high_perf_webserver src/examples/high_perf_webserver.c)
 add_executable(can_automotive src/examples/can_automotive.c)
 add_executable(low_latency_trading src/examples/low_latency_trading.c)
 
+
+add_subdirectory(examples)
 # Link libraries
 if(UNIX AND NOT APPLE)
     # Linux-specific libraries
